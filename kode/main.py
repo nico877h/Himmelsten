@@ -27,15 +27,6 @@ pygame.draw.rect(display, color, board.felt9)
 pygame.display.flip()
 
 
-def main():
-    run=True
-
-    while run:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-    
-    pygame.display.update()
 
 deck = ["DrowLanceMaster", "chompy", "Mohawk Cyclops", "Mace Major", "Blaster Troll","Arkeyan Ultron"]
 
@@ -61,9 +52,18 @@ if player2_cards:
         print("-",card)
     
 
+def play_himmelsten():
+    run=True
+
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+    
+    pygame.display.update()
 
 
-draw_cards()
-main()
+
+play_himmelsten()
 
 pygame.quit()
