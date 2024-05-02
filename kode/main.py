@@ -1,64 +1,69 @@
 import pygame
-import board
+import random
+from board import Board
 import brikker 
 import menu
 import værdier
 
 pygame.init()
 
-size = (500,500)
+size = (800,500)
 color = (120,120,120)
-felt1 = pygame.Rect(60, 10, 120, 120)
-felt2 = pygame.Rect(190, 10, 120, 120)
-felt3 = pygame.Rect(320, 10, 120, 120)
-felt4 = pygame.Rect(60, 140, 120, 120)
-felt5 = pygame.Rect(190, 140, 120, 120)
-felt6 = pygame.Rect(320, 140, 120, 120)
-felt7 = pygame.Rect(60, 270, 120, 120)
-felt8 = pygame.Rect(190, 270, 120, 120)
-felt9 = pygame.Rect(320, 270, 120, 120)
-
-
-
+board = Board()
 
 pygame.display.set_caption("Himmelsten")
 
 display = pygame.display.set_mode((size))
 
-pygame.draw.rect(display, color, felt1)
-pygame.draw.rect(display, color, felt2)
-pygame.draw.rect(display, color, felt3)
-pygame.draw.rect(display, color, felt4)
-pygame.draw.rect(display, color, felt5)
-pygame.draw.rect(display, color, felt6)
-pygame.draw.rect(display, color, felt7)
-pygame.draw.rect(display, color, felt8)
-pygame.draw.rect(display, color, felt9)
-
-
-
-
+pygame.draw.rect(display, color, board.felt1)
+pygame.draw.rect(display, color, board.felt2)
+pygame.draw.rect(display, color, board.felt3)
+pygame.draw.rect(display, color, board.felt4)
+pygame.draw.rect(display, color, board.felt5)
+pygame.draw.rect(display, color, board.felt6)
+pygame.draw.rect(display, color, board.felt7)
+pygame.draw.rect(display, color, board.felt8)
+pygame.draw.rect(display, color, board.felt9)
 pygame.display.flip()
-
 
 
 def main():
     run=True
 
-
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-
-
     
     pygame.display.update()
 
+deck = ["DrowLanceMaster", "chompy", "Mohawk Cyclops", "Mace Major", "Blaster Troll","Arkeyan Ultron"]
+
+
+def draw_cards():
+    if len(deck) >= 5:
+        return random.sample(deck, 5)
+    else:
+        print("not enough cards in deck")
+        return None
+
+
+player1_cards = draw_cards()
+if player1_cards:
+    print("player1 drew")
+    for card in player1_cards:
+        print("-",card)
+
+player2_cards = draw_cards()
+if player2_cards:
+    print("player2 drew")
+    for card in player2_cards:
+        print("-",card)
+    
 
 
 
-
+draw_cards()
 main()
 
 pygame.quit()
