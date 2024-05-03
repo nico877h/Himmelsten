@@ -11,7 +11,8 @@ board = Board()
 brikker = Brikker()
 
 size = (800,500)
-color = (120,120,120)
+grey = (120,120,120)
+White = (0,0,0)
 
 
 pygame.display.set_caption("Himmelsten")
@@ -20,7 +21,7 @@ display = pygame.display.set_mode((size))
 
 
 for x in board.felter:
-    pygame.draw.rect(display, color, x)
+    pygame.draw.rect(display, grey, x)
 
 pygame.display.flip()
 
