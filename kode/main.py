@@ -18,15 +18,10 @@ pygame.display.set_caption("Himmelsten")
 
 display = pygame.display.set_mode((size))
 
-pygame.draw.rect(display, color, board.felt1)
-pygame.draw.rect(display, color, board.felt2)
-pygame.draw.rect(display, color, board.felt3)
-pygame.draw.rect(display, color, board.felt4)
-pygame.draw.rect(display, color, board.felt5)
-pygame.draw.rect(display, color, board.felt6)
-pygame.draw.rect(display, color, board.felt7)
-pygame.draw.rect(display, color, board.felt8)
-pygame.draw.rect(display, color, board.felt9)
+
+for x in board.felter:
+    pygame.draw.rect(display, color, x)
+
 pygame.display.flip()
 
 
