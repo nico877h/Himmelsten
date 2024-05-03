@@ -1,15 +1,18 @@
 import pygame
 import random
 from board import Board
-import brikker 
+from brikker import Brikker 
 import menu
 import værdier
 
 pygame.init()
 
+board = Board()
+brikker = Brikker()
+
 size = (800,500)
 color = (120,120,120)
-board = Board()
+
 
 pygame.display.set_caption("Himmelsten")
 
@@ -27,13 +30,9 @@ pygame.draw.rect(display, color, board.felt9)
 pygame.display.flip()
 
 
-
-deck = ["DrowLanceMaster", "chompy", "Mohawk Cyclops", "Mace Major", "Blaster Troll","Arkeyan Ultron"]
-
-
 def draw_cards():
-    if len(deck) >= 5:
-        return random.sample(deck, 5)
+    if len(brikker.deck) >= 5:
+        return random.sample(brikker.deck, 5)
     else:
         print("not enough cards in deck")
         return None
@@ -52,6 +51,7 @@ if player2_cards:
         print("-",card)
     
 
+
 def play_himmelsten():
     run=True
 
@@ -61,7 +61,6 @@ def play_himmelsten():
                 run = False
     
     pygame.display.update()
-
 
 
 play_himmelsten()
