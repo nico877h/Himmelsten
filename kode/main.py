@@ -23,6 +23,9 @@ display = pygame.display.set_mode((size))
 for x in board.felter:
     pygame.draw.rect(display, grey, x)
 
+imp = pygame.image.load("Arkeyan.png").convert()
+
+display.blit(imp, (0,0))
 pygame.display.flip()
 
 
@@ -39,13 +42,14 @@ if player1_cards:
     print("player1 drew")
     for card in player1_cards:
         print("-",card)
+        
 
 player2_cards = draw_cards()
 if player2_cards:
     print("player2 drew")
     for card in player2_cards:
         print("-",card)
-    
+
 
 
 def play_himmelsten():
