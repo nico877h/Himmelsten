@@ -12,7 +12,7 @@ brikker = Brikker()
 
 width, height = (800,600)
 grey = (120,120,120)
-White = (255, 255, 255)
+White = (255,255,255)
 gridSize = 3
 sideGridSize = 5
 CellSize = 100
@@ -38,7 +38,7 @@ def draw_grid(x_offset, y_offset, rows, collums):
             rect = pygame.Rect(x_offset + collum * (CellSize + GridSpaceing),
                                y_offset + row * (CellSize + GridSpaceing),
                                CellSize, CellSize)
-            pygame.draw.rect(display, White, rect, 3)
+            pygame.draw.rect(display, White, rect, gridSize)
 
 
 def draw_cards():
@@ -71,16 +71,17 @@ def play_himmelsten():
             if event.type == pygame.QUIT:
                 run = False
             
+        #Draw main 3x3 grid
         center_x = (width - (gridSize * CellSize + (gridSize - 1) * GridSpaceing)) // 2
         center_y = (height - (gridSize * CellSize + (gridSize - 1) * GridSpaceing)) // 2
         draw_grid(center_x, center_y, gridSize, gridSize)
 
-        # Draw the left 1x5 grid
+        #Draw left 1x5 grid
         left_x = center_x - (GridSpaceing + CellSize)
         left_y = (height - (sideGridSize * CellSize + (sideGridSize - 1) * GridSpaceing)) // 2
         draw_grid(left_x, left_y, sideGridSize, 1)
 
-        # Draw the right 1x5 grid
+        # Draw right 1x5 grid
         right_x = center_x + (gridSize * CellSize) + GridSpaceing*3
         draw_grid(right_x, left_y, sideGridSize, 1)
 
