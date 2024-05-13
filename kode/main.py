@@ -10,24 +10,35 @@ pygame.init()
 board = Board()
 brikker = Brikker()
 
-size = (800,500)
+width, height = (800,600)
 grey = (120,120,120)
-White = (0,0,0)
+White = (255, 255, 255)
+gridSize = 3
+sideGridSize = 5
+CellSize = 100
+GridSpaceing = 20
 
 
 pygame.display.set_caption("Himmelsten")
 
-display = pygame.display.set_mode((size))
+display = pygame.display.set_mode((width, height))
 
 
-for x in board.felter:
-    pygame.draw.rect(display, grey, x)
+###for x in board.felter:
+    ###pygame.draw.rect(display, grey, x)
 
-imageSize = (200, 200)
+imageSize = (150, 150)
 square = pygame.image.load("square.png").convert_alpha()
 square = pygame.transform.scale(square, imageSize)
 
 
+def draw_grid(x_offset, y_offset, rows, collums):
+    for row in range(rows):
+        for collum in range(collums):
+            rect = pygame.Rect(x_offset + collum * (CellSize + GridSpaceing),
+                               y_offset + row * (CellSize + GridSpaceing),
+                               CellSize, CellSize)
+            pygame.draw.rect(display, White, rect, 3)
 
 
 def draw_cards():
@@ -52,7 +63,6 @@ if player2_cards:
         print("-",card)
 
 
-
 def play_himmelsten():
     run=True
 
@@ -61,7 +71,20 @@ def play_himmelsten():
             if event.type == pygame.QUIT:
                 run = False
             
-        display.blit(square, (0,0))
+        center_x = (width - (gridSize * CellSize + (gridSize - 1) * GridSpaceing)) // 2
+        center_y = (height - (gridSize * CellSize + (gridSize - 1) * GridSpaceing)) // 2
+        draw_grid(center_x, center_y, gridSize, gridSize)
+
+        # Draw the left 1x5 grid
+        left_x = center_x - (GridSpaceing + CellSize)
+        left_y = (height - (sideGridSize * CellSize + (sideGridSize - 1) * GridSpaceing)) // 2
+        draw_grid(left_x, left_y, sideGridSize, 1)
+
+        # Draw the right 1x5 grid
+        right_x = center_x + (gridSize * CellSize) + GridSpaceing*3
+        draw_grid(right_x, left_y, sideGridSize, 1)
+
+        display.blit(square, (left_x,left_y))
         
         pygame.display.flip()
     
