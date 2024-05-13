@@ -23,10 +23,11 @@ display = pygame.display.set_mode((size))
 for x in board.felter:
     pygame.draw.rect(display, grey, x)
 
-imp = pygame.image.load("Arkeyan.png").convert()
+imageSize = (200, 200)
+square = pygame.image.load("square.png").convert_alpha()
+square = pygame.transform.scale(square, imageSize)
 
-display.blit(imp, (0,0))
-pygame.display.flip()
+
 
 
 def draw_cards():
@@ -59,8 +60,16 @@ def play_himmelsten():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            
+        display.blit(square, (0,0))
+        
+        pygame.display.flip()
     
-    pygame.display.update()
+        
+        pygame.display.update()
+    
+
+
 
 
 play_himmelsten()
