@@ -87,10 +87,33 @@ def play_himmelsten():
         
         for iterator, square in enumerate(player1_cards):
             display.blit(square_img, (left_x,left_y+iterator*(CellSize+GridSpaceing)))
+            font = pygame.font.Font(None, 50)
+            text1N = font.render(str(player1_cards[iterator]["north"]), 1, White)
+            text1S = font.render(str(player1_cards[iterator]["south"]), 1, White)
+            text1E = font.render(str(player1_cards[iterator]["east"]), 1, White)
+            text1W = font.render(str(player1_cards[iterator]["west"]), 1, White)
+
+            display.blit(text1N,(left_x+40,(left_y)+iterator*(CellSize+GridSpaceing)))
+            display.blit(text1S,(left_x+40,(left_y)+iterator*(CellSize+GridSpaceing)+70))
+            display.blit(text1E,(left_x+75,(left_y)+iterator*(CellSize+GridSpaceing)+35))
+            display.blit(text1W,(left_x+5,(left_y)+iterator*(CellSize+GridSpaceing)+35))
+
+
         
         for iterator, square in enumerate(player2_cards):
             display.blit(square_img, (right_x,left_y+iterator*(CellSize+GridSpaceing)))
+            text2N = font.render(str(player2_cards[iterator]["north"]), 1, White)
+            text2S = font.render(str(player2_cards[iterator]["south"]), 1, White)
+            text2E = font.render(str(player2_cards[iterator]["east"]), 1, White)
+            text2W = font.render(str(player2_cards[iterator]["west"]), 1, White)
+
+            display.blit(text2N,(right_x+40,(left_y)+iterator*(CellSize+GridSpaceing)))
+            display.blit(text2S,(right_x+40,(left_y)+iterator*(CellSize+GridSpaceing)+70))
+            display.blit(text2E,(right_x+75,(left_y)+iterator*(CellSize+GridSpaceing)+35))
+            display.blit(text2W,(right_x+5,(left_y)+iterator*(CellSize+GridSpaceing)+35))
+
         
+                
     
         pygame.display.update()
     
