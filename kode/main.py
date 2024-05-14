@@ -92,7 +92,7 @@ def play_himmelsten():
             text1S = font.render(str(player1_cards[iterator]["south"]), 1, White)
             text1E = font.render(str(player1_cards[iterator]["east"]), 1, White)
             text1W = font.render(str(player1_cards[iterator]["west"]), 1, White)
-
+            
             display.blit(text1N,(left_x+40,(left_y)+iterator*(CellSize+GridSpaceing)))
             display.blit(text1S,(left_x+40,(left_y)+iterator*(CellSize+GridSpaceing)+70))
             display.blit(text1E,(left_x+75,(left_y)+iterator*(CellSize+GridSpaceing)+35))
