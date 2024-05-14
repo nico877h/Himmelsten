@@ -1,21 +1,29 @@
 from brikker import Brikker
 
 
+hand_1 = ["1","2","3","4","5"]
+hand_2 = ["1","2","3","4","5"]
+board = ["1","2","3","4","5","6","7","8","9"]
 #chose brick
-for x in input:
-    input = playerchoise
-    if playerchoise >= 1 and x in Brikker.deck:
-        return x in input and print(x)
+chosenbrick = None
+user_input = input("which piece?") #Example "1" -> DrowlanceMaster
+for piece in hand:
+    if user_input == piece: # tildel de 5 forskellige brikker en værdi fra 1 til 5
+        chosenbrick = piece
+        hand.remove(piece)
     else:
-        print("Input has to be 1 to 5")
+        if input not in list.hand: 
+            print("Input has to be 1 to 5")
 
-
-#place brick
-for x in input:
-    input = playerchoise
-    if playerchoise >= 1 and x in felter:
-        return x in input and print(x)
+#chose collum
+chosenfelt = None
+user_input = input("which collum?") #Example "1" -> collum 1
+for felt in board:
+    if user_input == felt and felt == empty: # vælger et felt og ligge brikken på
+        chosenfelt = felt
     else:
-        print("Input has to be 1 to 9")
+        if input not in list.board: 
+            print("Input has to be 1 to 5")
+
 
 print(input)
