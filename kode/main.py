@@ -112,13 +112,9 @@ def play_himmelsten():
             display.blit(text2E,(right_x+75,(left_y)+iterator*(CellSize+GridSpaceing)+35))
             display.blit(text2W,(right_x+5,(left_y)+iterator*(CellSize+GridSpaceing)+35))
 
-        
-                
-    
+
         pygame.display.update()
     
-
-
 
 
 play_himmelsten()
